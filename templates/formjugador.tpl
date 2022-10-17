@@ -1,5 +1,5 @@
 <h2>registra tu jugador</h2>
-<form>
+<form action="add" method="post" class="my-4">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Nombre</label>
     <input name="nombre" type="text" aria-describedby="emailHelp">
@@ -29,5 +29,6 @@
     <label for="exampleInputPassword1" class="form-label">rol</label>
     <input name="rol" type="text">
   </div>
-  <a href="add" type="submit" class="btn btn-primary">Crear</a>
+  <button href="add" type="submit" class="btn btn-primary">Crear</button>
 </form>
+        

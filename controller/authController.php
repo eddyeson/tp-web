@@ -15,23 +15,25 @@ class AuthController{
     public function mostrarForm(){
         $this->view->mostrarForm();
     }
-    public function validacionUser(){
-        
-        $email = $_POST['email'];
-        $contrasenia = $_POST['password'];
-        $usuario = $this->model->conseguirUsuarioPorMail($email);
-        var_dump($usuario);
-        var_dump($usuario->mail);
-       
-        if ($usuario /*&& password_verify($usuario->password,$contrasenia)*/){
-            session_start();
-            $_SESSION['USER_ID'] = $usuario->id;
-            $_SESSION['USER_EMAIL'] = $usuario->mail;
-            $_SESSION['IS_LOGGED'] = true;
-            header("Location: " . BASE_URL);
-        }else{
+    public function validationUsers(){
 
-            $this->view->mostrarForm("El usuario o la contraseña no existe");
+        $email=$_POST['email'];
+        $password = $_POST['password'];
+
+        $user = $this->model->getUserByEmail($email);
+
+        if($user && password_verify($password, $user->password)){
+
+            session_start();
+            $_SESSION['USER_ID'] = $user->id;
+            $_SESSION['USER_EMAIL'] = $user->email;
+            $_SESSION['IS_ADMIN']=true;
+            header("Location: " . BASE_URL);
+
+        }
+
+        else{
+            $this->view->mostrarForm("El usuario o la contraseña no existe.");
         }
     }
     public function logout() {

@@ -13,7 +13,7 @@ class jugadoresModel{
         
        
         
-        var_dump($jugador);
+        //var_dump($jugador);
         return $jugador;
         
     }
@@ -26,7 +26,7 @@ class jugadoresModel{
             $query->execute([$detalle->id_equipo]);
             $equipo = $query->fetch(PDO::FETCH_OBJ);
             $detalle->id_equipo=$equipo->equipo;
-            var_dump($equipo);
+            //var_dump($equipo);
         }
         return $jugadorDetail;
     }
@@ -49,9 +49,10 @@ class jugadoresModel{
         $query->execute([$nombreDeJugador, $idEquipo]);
     }
 
-    function agregarjugadoralaDB($nombre,$sensibilidad,$dpi,$rango,$id,$rol){
-        $query = $this->db->prepare("INSERT INTO jugador (nombre, sensibilidad, dpi, rango, id_equipo, rol) VALUES (?, ?, ?, ?, ?, ?)");
-        $query->execute([$nombre,$sensibilidad,$dpi,$rango,$id,$rol]);
+    function agregarjugadoralaDB($nombre,$sensibilidad,$dpi,$rango,$equipo,$rol){
+        $query = $this->db->prepare("INSERT INTO jugador(nombre, sensibilidad, dpi, rango, id_equipo, rol) VALUES (?, ?, ?, ?, ?, ?)");
+        $query->execute([$nombre,$sensibilidad,$dpi,$rango,$equipo,$rol]);
+        return $this->db->lastInsertId();
     }
     
 }

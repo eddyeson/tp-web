@@ -16,7 +16,7 @@ class jugadoresController{
     }
     function detallesDejugador($id){
         $jugadorDetail=$this->model->detallesDejugador($id);
-        var_dump($jugadorDetail);
+        //var_dump($jugadorDetail);
         $this->view->mostrarDetalle($jugadorDetail);
     }
     function jugadoresdeeseequipo($id){
@@ -34,7 +34,7 @@ class jugadoresController{
         $rango = $_POST['rango'];
         $equipo = $_POST['equipo'];
         $rol = $_POST['rol'];
-
+        var_dump($equipo);
         $this->model->agregarjugadoralaDB($nombre,$sensibilidad,$dpi,$rango,$equipo,$rol);
         header('Location: '. BASE_URL);
     }

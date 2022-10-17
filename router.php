@@ -46,9 +46,9 @@ switch ($params[0]) {
         $authController = new AuthController();
         $authController->mostrarForm();
         break;
-    case 'validacion':
+    case 'validation':
         $authController = new AuthController();
-        $authController->validacionUser();
+        $authController->validationUsers();
         break;
     case 'logout':
         $authController = new AuthController();
