@@ -13,7 +13,10 @@ class equiposView{
         $this->smarty->assign('equipos',"Todos los equipos");
         $this->smarty->assign('equipoArrays', $equipos);
         $this->smarty->display('templates/equipList.tpl');
-
+}
+function showeditformequipo($id){
+    $this->smarty->assign('id', $id);
+    $this->smarty->display('formeditarequipo.tpl');
 }
 
    

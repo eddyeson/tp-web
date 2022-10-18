@@ -14,4 +14,30 @@ class equiposModel{
         //var_dump($equipos);
         return $equipos;
     }
+    function eliminarequipos($id){ 
+        $query = $this->db->prepare("DELETE FROM equipos WHERE id_equipo = ?");
+        $query->execute([$id]);
+     }
+    function agregarequipolaDB($equipo,$pais){
+        $query = $this->db->prepare("INSERT INTO equipos(equipo, nacionalidad)"." VALUES (?, ?)");
+        $query->execute(array($equipo,$pais));
+        header("Location: " . BASE_URL);
+    }
+    function eliminarequipo($id){
+        $query = $this->db->prepare("DELETE FROM equipos WHERE id_equipos = ?");
+       try{   $query->execute([$id]);}
+       catch(PDOException $ex){
+        header("Location: " . BASE_URL);
+       }
+       header("Location: " . BASE_URL);
+    }
+    function editarequipodelaDB($data,$id){
+        $query = $this->db->prepare("UPDATE  equipos SET equipo = ?, nacionalidad = ? WHERE id_equipos = ?");
+
+      try{  $query->execute(array($data->equipo,$data->nacionalidad,$id));} 
+      catch(PDOException $ex){
+        header("Location: " . BASE_URL);
+      }
+      header("Location: " . BASE_URL);
+    }
 }

@@ -1,5 +1,6 @@
+{include file="header.tpl" }
 <h2>registra tu jugador</h2>
-<form action="add" method="post" class="my-4">
+<form action="edit/{$id}" method="POST" class="my-4">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Nombre</label>
     <input name="nombre" type="text" aria-describedby="emailHelp">
@@ -29,7 +30,5 @@
     <label for="exampleInputPassword1" class="form-label">rol</label>
     <input name="rol" type="text">
   </div>
-  <button href="add" type="submit" class="btn btn-primary">Crear</button>
+  <button  type="submit" class="btn btn-primary">Crear</button>
 </form>
-
-

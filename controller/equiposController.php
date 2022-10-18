@@ -17,6 +17,25 @@ class equiposController{
         $this->view->mostrarequipos($equipos);
         
     }
-
-  
+    
+    function eliminarequipos($id){
+        $this->model->eliminarequipos($id);
+    }
+    public function agregarequipo(){
+        $equipo = $_POST['equipo'];
+        $pais = $_POST['nacionalidad'];
+        $this->model->agregarequipolaDB($equipo,$pais);
+    }
+    public function borrarequipo($id){
+        $this->model->eliminarequipo($id);
+    }
+    public function editarequipo($id){
+        $this->view->showeditformequipo($id);
+    }
+    public function editarequiposentero($id){
+        $data = new stdClass();
+        $data->equipo = $_POST['equipo'];
+        $data->nacionalidad = $_POST['nacionalidad'];
+        $this->model->editarequipodelaDB($data,$id);
+    }
 }

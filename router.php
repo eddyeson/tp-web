@@ -54,7 +54,7 @@ switch ($params[0]) {
         $authController = new AuthController();
         $authController->logout();
         break;
-    case 'borrar':
+    case 'borrar-jugador':
         $jugadoresController = new jugadoresController();
         $id = $params[1];
         $jugadoresController->eliminarjugador($id);
@@ -63,6 +63,33 @@ switch ($params[0]) {
         $jugadoresController = new jugadoresController();
         $jugadoresController->agregarjugador();
         break;
+    case 'showedit':
+        $jugadoresController = new jugadoresController();
+        $id = $params[1];
+        $jugadoresController->editarjugador($id);
+        break;
+    case 'edit':
+        $jugadoresController = new jugadoresController();
+        $id = $params[1];
+        $jugadoresController->editarjugadores($id);
+        break;    
+    case 'agregarequipo':
+        $equiposController = new equiposController();
+        $equiposController->agregarequipo();
+        break;
+    case 'borrar-equipo':
+        $equiposController = new equiposController();
+        $id = $params[1];
+        $equiposController->borrarequipo($id);
+        break;    
+    case 'showeditequipo':
+        $equiposController = new equiposController();
+        $id = $params[1];
+        $equiposController->editarequipo($id);
+    case 'editarequipos':
+        $equiposController = new equiposController();
+        $id = $params[1];
+        $equiposController->editarequiposentero($id);
     default:
         echo ('404 Page not found');
         break;

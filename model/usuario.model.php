@@ -14,4 +14,5 @@ class UserModel {
         return $query->fetch(PDO::FETCH_OBJ);
     }
 
+   
 }

@@ -8,10 +8,10 @@ class jugadoresView{
         $this->smarty = new Smarty();
     }
 
-    function mostrarjugadores($jugador){  
+    function mostrarjugadores($jugadoresdeeseequipo){  
         //from=$jugadorArrays item=$jugador
         $this->smarty->assign('jugador', "Todas los jugadores");
-        $this->smarty->assign('jugadorArrays', $jugador);
+        $this->smarty->assign('jugadorArrays', $jugadoresdeeseequipo);
         $this->smarty->display('templates/jugadoresList.tpl'); // muestro el template   
 
     }
@@ -20,9 +20,17 @@ class jugadoresView{
         $this->smarty->assign('details',$detailjugador);
         $this->smarty->display('templates/detailjugador.tpl'); // muestro el template   
     }
-    function jugadoresdeeseequipo($jugadoresdelequipo){
+    function jugadoresdeequipo($jugadoresdeeseequipo){
         $this->smarty->assign('jugadores',"jugadores de este equipo");
-        $this->smarty->assign('jugadoresenesteequipo', $jugadoresdelequipo);
+        $this->smarty->assign('jugadoresarrays', $jugadoresdeeseequipo);
         $this->smarty->display('jugadoresenesteequipo.tpl');
+    }
+    /*function vistaeditform($editarjugador){
+        $this->smarty->assign('editarjugador',$editarjugador);
+        $this->smarty->display('detailjugador.tpl');
+    }*/
+    function showeditform($id){
+        $this->smarty->assign('id', $id);
+        $this->smarty->display('formeditarjugador.tpl');
     }
 }

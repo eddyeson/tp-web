@@ -25,7 +25,7 @@ class jugadoresController{
     }
     function eliminarjugador($id){
         $this->model->eliminarjugador($id);
-        header('Location: '. BASE_URL);
+
     }
     public function agregarjugador(){
         $nombre = $_POST['nombre'];
@@ -34,9 +34,22 @@ class jugadoresController{
         $rango = $_POST['rango'];
         $equipo = $_POST['equipo'];
         $rol = $_POST['rol'];
-        var_dump($equipo);
         $this->model->agregarjugadoralaDB($nombre,$sensibilidad,$dpi,$rango,$equipo,$rol);
-        header('Location: '. BASE_URL);
+       
     }
-  
+    public function editarjugador($id){
+        $this->view->showeditform($id);
+    }
+    public function editarjugadores($id){
+        $data = new stdClass();
+        $data->nombre = $_POST['nombre'];
+        $data->sensibilidad = $_POST['sensibilidad'];
+        $data->dpi = $_POST['dpi'];
+        $data->rango = $_POST['rango'];
+        $data->equipo = $_POST['equipo'];
+        $data->rol = $_POST['rol'];
+        $this->model->editarjugadordelaDB($data,$id);
+    }
+    
+    
 }

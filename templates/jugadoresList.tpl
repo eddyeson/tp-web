@@ -13,7 +13,8 @@
         {include file="formjugador.tpl"}
         {foreach from=$jugadorArrays item=$jugador}
             <li class="list-group-item list-group-item-action list-group-item-primary"><a href="borrar/{$jugador->id}" type="button" class="btn btn-outline-danger">Borrar</a>
-            <button type="button" class="btn btn-outline-success">Editar</button> Nombre: <a href='detalles/{$jugador->id}'>{$jugador->nombre}</a></li>
+            <a href="showedit/{$jugador->id}" type="button" class="btn btn-outline-danger">editar</a>
+             Nombre: <a href='detalles/{$jugador->id}'>{$jugador->nombre}</a></li>
             
         {/foreach}
     {/if}
