@@ -38,6 +38,6 @@ class equiposModel{
       catch(PDOException $ex){
         header("Location: " . BASE_URL);
       }
-      header("Location: " . BASE_URL);
+     // header("Location: " . BASE_URL);
     }
 }
