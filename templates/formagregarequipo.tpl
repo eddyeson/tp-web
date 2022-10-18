@@ -1,3 +1,4 @@
+{include file="header.tpl" }
 <form action="agregarequipo" method="POST" class="my-4">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">equipo</label>

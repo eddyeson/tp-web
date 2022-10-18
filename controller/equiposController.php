@@ -29,13 +29,15 @@ class equiposController{
     public function borrarequipo($id){
         $this->model->eliminarequipo($id);
     }
-    public function editarequipo($id){
+    public function showformeditquipo($id){
         $this->view->showeditformequipo($id);
     }
     public function editarequiposentero($id){
         $data = new stdClass();
+        if(isset ($_POST['equipo']) ){ 
         $data->equipo = $_POST['equipo'];
         $data->nacionalidad = $_POST['nacionalidad'];
         $this->model->editarequipodelaDB($data,$id);
+         }
     }
 }

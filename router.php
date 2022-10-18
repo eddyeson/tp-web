@@ -85,11 +85,13 @@ switch ($params[0]) {
     case 'showeditequipo':
         $equiposController = new equiposController();
         $id = $params[1];
-        $equiposController->editarequipo($id);
+        $equiposController->showformeditquipo($id);
+        break;
     case 'editarequipos':
         $equiposController = new equiposController();
         $id = $params[1];
         $equiposController->editarequiposentero($id);
+        break;
     default:
         echo ('404 Page not found');
         break;
