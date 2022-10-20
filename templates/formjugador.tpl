@@ -19,10 +19,10 @@
   <div class="mb-3">
     <label for="disabledSelect" class="form-label">Seleccione un equipo</label>
     <select name="equipo" class="form-select">
-        <option value="1">navi</option>
-        <option value="2">mad lion</option>
-        <option value="7">astralis</option>
-        <option value="8">faze clan</option>
+    <option value="1">navi</option>
+    <option value="2">mad lion</option>
+    <option value="7">astralis</option>
+    <option value="8">faze clan</option>
     </select>
   </div>
   <div class="mb-3">
