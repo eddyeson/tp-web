@@ -38,10 +38,10 @@ CREATE TABLE `equipos` (
 --
 
 INSERT INTO `equipos` (`id_equipos`, `equipo`, `nacionalidad`) VALUES
-(1, '', ''),
-(7, '', ''),
-(8, '', ''),
-(9, '', '');
+(1, 'navi', 'europa'),
+(7, 'mad lion', 'españa'),
+(8, 'astralis', 'europa'),
+(9, 'faze clan', 'estados unidos');
 
 -- --------------------------------------------------------
 
