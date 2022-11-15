@@ -8,29 +8,28 @@ class jugadoresView{
         $this->smarty = new Smarty();
     }
 
-    function mostrarjugadores($jugadoresdeeseequipo){  
-        //from=$jugadorArrays item=$jugador
+    function mostrarjugadores($jugador,$equipos){  
         $this->smarty->assign('jugador', "Todas los jugadores");
-        $this->smarty->assign('jugadorArrays', $jugadoresdeeseequipo);
-        $this->smarty->display('templates/jugadoresList.tpl'); // muestro el template   
+        $this->smarty->assign('jugadorArrays', $jugador);
+        $this->smarty->assign('equipos', $equipos);
+        $this->smarty->display('templates/jugadoresList.tpl');  
 
     }
     function mostrarDetalle($detailjugador){
         $this->smarty->assign('detalles',"Detalles de jugador");
         $this->smarty->assign('details',$detailjugador);
-        $this->smarty->display('templates/detailjugador.tpl'); // muestro el template   
+        $this->smarty->display('templates/detailjugador.tpl'); 
     }
     function jugadoresdeequipo($jugadoresdeeseequipo){
         $this->smarty->assign('jugadores',"jugadores de este equipo");
         $this->smarty->assign('jugadoresarrays', $jugadoresdeeseequipo);
         $this->smarty->display('jugadoresenesteequipo.tpl');
     }
-    /*function vistaeditform($editarjugador){
-        $this->smarty->assign('editarjugador',$editarjugador);
-        $this->smarty->display('detailjugador.tpl');
-    }*/
-    function showeditform($id){
+    
+    function showeditform($id,$equipos,$jugador){
         $this->smarty->assign('id', $id);
+        $this->smarty->assign('equipos',$equipos);
+        $this->smarty->assign('jugador',$jugador);
         $this->smarty->display('formeditarjugador.tpl');
     }
 }

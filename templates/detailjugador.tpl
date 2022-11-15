@@ -1,5 +1,4 @@
-{include file="header.tpl" }
-
+{include file="header.tpl"}
 <h1>{$detalles}</h1>
 
 <ul class="list-group">
@@ -11,9 +10,7 @@
       <li class="list-group-item list-group-item-success">equipo: {$detail->id_equipo}</li>
       <li class="list-group-item list-group-item-success">rol: {$detail->rol}</li>
 {/foreach}
-
 </ul>
-
 
 
 

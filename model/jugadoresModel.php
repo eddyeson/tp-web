@@ -10,10 +10,6 @@ class jugadoresModel{
         $query = $this->db->prepare('SELECT * FROM jugador');
         $query -> execute();
         $jugador = $query->fetchAll(PDO::FETCH_OBJ);
-        
-       
-        
-        //var_dump($jugador);
         return $jugador;
         
     }
@@ -26,7 +22,6 @@ class jugadoresModel{
             $query->execute([$detalle->id_equipo]);
             $equipo = $query->fetch(PDO::FETCH_OBJ);
             $detalle->id_equipo=$equipo->equipo;
-            //var_dump($equipo);
         }
         return $jugadorDetail;
     }
@@ -36,27 +31,19 @@ class jugadoresModel{
         $equipjugador=$query->fetchAll(PDO::FETCH_OBJ);
         return $equipjugador;
     }
-
-    //Funciones de admin
-
     function eliminarjugador($id){
         $query = $this->db->prepare("DELETE FROM jugador WHERE id = ?");
         $query->execute([$id]);
     }
-    
-
-
     function agregarjugadoralaDB($nombre,$sensibilidad,$dpi,$rango,$equipo,$rol){
         $query = $this->db->prepare("INSERT INTO jugador(nombre, sensibilidad, dpi, rango, id_equipo, rol) VALUES (?, ?, ?, ?, ?, ?)");
         $query->execute([$nombre,$sensibilidad,$dpi,$rango,$equipo,$rol]);
         return $this->db->lastInsertId();
-        header('Location: '. BASE_URL);
     }
    public function editarjugadordelaDB($data,$id){
         $query = $this->db->prepare("UPDATE  jugador SET nombre = ?,sensibilidad = ?, dpi = ?, rango = ?,id_equipo = ?, rol = ? WHERE id = ?");
 
         $query->execute(array($data->nombre,$data->sensibilidad,$data->dpi,$data->rango,$data->equipo,$data->rol,$id));
         
-        header('Location: '. BASE_URL);
     }
 }   

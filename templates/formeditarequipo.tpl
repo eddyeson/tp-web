@@ -1,4 +1,5 @@
 {include file="header.tpl" }
+
 <form action="editarequipos/{$id}" method="POST" class="my-4">
   <div class="mb-3">
     <label for="equipo" class="form-label">equipo</label>

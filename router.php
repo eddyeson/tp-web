@@ -14,16 +14,10 @@ if (!empty($_GET['action'])) { // si viene definida la reemplazamos
     $action = $_GET['action'];
 }
 
-/* Posicionate en la carpeta donde tengas el proyecto y tira el comando
-chmod -R 777 templates_c
-chmod -R 777 libs/smarty-4.2.1
-chmod es para dar los permisos y con -R le decís que haga lo mismo con todo lo que tenga 
-adentro, si no te anda tiraselo a todo el proyecto y fue */
 
-// parsea la accion Ej: dev/juan --> ['dev', juan]
 $params = explode('/', $action);
 
-session_start();
+
 // determina que camino seguir según la acción
 switch ($params[0]) {
     case 'home':
