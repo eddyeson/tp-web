@@ -36,21 +36,19 @@ class jugadoresController{
         $this->model->eliminarjugador($id);
         header("Location: " . BASE_URL );
     }
-    public function agregarjugador(){
+    public function agregarjugador()
+    {
         $this->helper->checkLoggedIn();
-        if(empty($_POST['nombre'])||empty($_POST['sensibilidad'])||empty($_POST['dpi'])||empty($_POST['rango'])||empty($_POST['equipo'])||empty($_POST['rol'])){
-            header("Location: " . BASE_URL );
-        }
-        else{ 
+        if (!(empty($_POST['nombre']) || empty($_POST['sensibilidad']) || empty($_POST['dpi']) || empty($_POST['rango']) || empty($_POST['id_equipo']) || empty($_POST['rol']))) {
             $nombre = $_POST['nombre'];
             $sensibilidad = $_POST['sensibilidad'];
             $dpi = $_POST['dpi'];
             $rango = $_POST['rango'];
-            $equipo = $_POST['equipo'];
+            $equipo = $_POST['id_equipo'];
             $rol = $_POST['rol'];
-            $this->model->agregarjugadoralaDB($nombre,$sensibilidad,$dpi,$rango,$equipo,$rol);
-            header("Location: " . BASE_URL );
-         }
+            $this->model->agregarjugadoralaDB($nombre, $sensibilidad, $dpi, $rango, $equipo, $rol);
+        }
+        header("Location: " . BASE_URL);
     }
     function obtenerequipo(){
         $equipos=$this-> modelequipo->obtenerequipo();

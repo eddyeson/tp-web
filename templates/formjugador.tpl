@@ -18,7 +18,7 @@
   </div>
   <div class="mb-3">
   <label for="disabledSelect" class="form-label">Seleccione un equipo</label>
-  <select class="form-select card-subtitle mb-3" aria-label="Default select example" name="category">
+  <select name="id_equipo" class="form-select card-subtitle mb-3" aria-label="Default select example" name="category">
         <option value=""><-Seleccionar equipo-></option>
           {foreach from=$equipos item=$equipo}
               <option value="{$equipo->id_equipos}">{$equipo->equipo}</option>
